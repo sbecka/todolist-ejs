@@ -9,20 +9,21 @@ app.get('/', (req, res) => {
     
     let today = new Date();
     let currentDay = today.getDay();
-    let day = '';
+    const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    let day = week[currentDay];
+    
+    // if (currentDay === 6 || currentDay === 0) {
+    //     day = 'Weekend';
 
-    if (currentDay === 6 || currentDay === 0) {
-        day = 'Weekend';
+    //     // res.send(`<h1>Yay it's the weekend!</h1>`);
+    // } else {
+    //     day = 'Weekday';
 
-        // res.send(`<h1>Yay it's the weekend!</h1>`);
-    } else {
-        day = 'Weekday';
-
-        // res.write(`<h1>Boo! I have to work.</h1>`);
-        // res.write(`<p>It's not the weekend.</p>`);
-        // res.send(); // sends all write()'s
-        // res.sendFile(__dirname + '/index.html'); or use html file
-    }
+    //     // res.write(`<h1>Boo! I have to work.</h1>`);
+    //     // res.write(`<p>It's not the weekend.</p>`);
+    //     // res.send(); // sends all write()'s
+    //     // res.sendFile(__dirname + '/index.html'); or use html file
+    // }
     
     res.render('list', {kindOfDay: day});
 });
